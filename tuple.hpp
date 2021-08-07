@@ -133,10 +133,10 @@ template <>
 struct TupleGet<0U>
 {
     template <typename Head, typename... Tail>
-    static Head Get(const Tuple<Head, Tail...> &tuple) { return tuple.GetHead(); }
+    static const Head &Get(const Tuple<Head, Tail...> &tuple) { return tuple.GetHead(); }
 
     template <typename Head, typename... Tail>
-    static Head Get(Tuple<Head, Tail...> &tuple) { return tuple.GetHead(); }
+    static Head &Get(Tuple<Head, Tail...> &tuple) { return tuple.GetHead(); }
 
     template <typename Head, typename... Tail>
     static Head Get(Tuple<Head, Tail...> &&tuple) { return tuple.GetHead(); }
